@@ -20,8 +20,8 @@ public class Customer {
     }
     
  // Parameterized constructor
-    public Customer( String firstName, String lastName, String email, String phoneNumber, String address, String username, String password) {
-        
+     public Customer(int customerID, String firstName, String lastName, String email, String phoneNumber, String address, String username, String password, Date registrationDate) {
+        this.customerID = customerID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -29,6 +29,7 @@ public class Customer {
         this.address = address;
         this.username = username;
         this.password = password;
+        this.registrationDate = registrationDate;
     }
     
  // Getters and Setters
