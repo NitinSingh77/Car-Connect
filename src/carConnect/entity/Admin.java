@@ -20,9 +20,9 @@ public class Admin {
 	}
 	
 	// Parameterized Constructor
-	public Admin(int adminId, String firstName, String lastName, String email, String phoneNumber, 
+	public Admin(int adminID, String firstName, String lastName, String email, String phoneNumber, 
 			String userName, String password, String role, Date joinDate){
-		this.adminID = adminId;
+		this.adminID = adminID;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -36,11 +36,11 @@ public class Admin {
 	// Getters and Setters
 	
 	//--------- AdminID--------------------------------------
-	public int getAdminId() {
+	public int getAdminID() {
         return adminID;
     }
-    public void setAdminId(int adminId) {
-        this.adminID = adminId;
+    public void setAdminID(int adminID) {
+        this.adminID = adminID;
     }
     
   //--------- FirstName--------------------------------------
