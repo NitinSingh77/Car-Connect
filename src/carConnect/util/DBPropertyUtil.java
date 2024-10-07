@@ -4,21 +4,21 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class DBPropertyUtil {
-	public static String getConnString(String propFileName)
+	public static String getConnectionString(String propertyFileName)
 	{
-		String connString= null;
-		Properties propsObject= new Properties();
+		String connectionString= null;
+		Properties propertyObject= new Properties();
 		//Created a stream connected to Properties file
 		try(FileInputStream fis= new FileInputStream(propFileName))
 		{
 			//try with resources
-			propsObject.load(fis);
+			propertyObject.load(fis);
 			//created connection string
-			connString= propsObject.getProperty("db.url")+"?user="+propsObject.getProperty("db.username")+"&password="+propsObject.getProperty("db.password");
+			connectionString= propertyObject.getProperty("db.url")+"?user="+propertyObject.getProperty("db.username")+"&password="+propertyObject.getProperty("db.password");
 			
-		}catch(IOException e)
+		}catch(IOException err)
 		{
-			e.printStackTrace();
+			err.printStackTrace();
 			System.out.println("Error: Not able to connect with Properties file");
 		}
 		return connString;
