@@ -93,4 +93,12 @@ public class Reservation {
         return days * dailyRate;
     }
 
+	
+    @Override
+    public String toString() {
+    	return "Reservation [reservationID=" + reservationID + ", customerID=" + customerID + ", vehicleId=" + vehicleID
+    			+ ", totalCost=" + totalCost + ", status=" + status + ", startDate=" + startDate + ", endDate=" + endDate
+    			+ "]";
+    }
+
 }
