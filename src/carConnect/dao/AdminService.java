@@ -29,21 +29,25 @@ public class AdminService implements IAdminService {
 			
 			if(res.next())
 			{
-				 obj= new Admin(res.getString("FirstName"), 
+				 obj= new Admin(
+						 res.getInt("Admin ID"), res.getString("FirstName"), 
 						 res.getString("LastName"), 
 						 res.getString("Email"), 
 						 res.getString("PhoneNumber"),  
 						 res.getString("Username"), 
 						 res.getString("Password"),
-						 res.getString("Role"));
+						 res.getString("Role"), 
+						 res.getDate("Join Date"));
 			}
-		}catch(Exception ex)
+		}catch(Exception err)
 		{
-			ex.printStackTrace();
+			err.printStackTrace();
 			System.out.println("Error while finding Admin details!");
 		}
 		return obj;
 	}
+
+
 
 	@Override
 	public Admin getAdminByUsername(String username) {
@@ -56,15 +60,18 @@ public class AdminService implements IAdminService {
 			pstmt.setString(1, username);
 			ResultSet res= pstmt.executeQuery();
 			
+
 			if(res.next())
 			{
-				 obj= new Admin(res.getString("FirstName"), 
+				 obj= new Admin(
+						 res.getInt("Admin ID"), res.getString("FirstName"), 
 						 res.getString("LastName"), 
 						 res.getString("Email"), 
 						 res.getString("PhoneNumber"),  
 						 res.getString("Username"), 
 						 res.getString("Password"),
-						 res.getString("Role"));
+						 res.getString("Role"), 
+						 res.getDate("Join Date"));
 			}
 		}catch(Exception ex)
 		{
