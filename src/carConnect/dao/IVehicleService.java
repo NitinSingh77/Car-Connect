@@ -1,0 +1,13 @@
+package carConnect.dao;
+
+import java.util.List;
+
+import carConnect.entity.Vehicle;
+
+public interface IVehicleService {
+	Vehicle getVehicleById(int vehicleId);
+    List<Vehicle> getAvailableVehicles();
+    void addVehicle(Vehicle vehicleData);
+    void updateVehicle(Vehicle vehicleData);
+    void removeVehicle(int vehicleId);
+}
