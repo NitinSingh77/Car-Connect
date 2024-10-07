@@ -1,13 +1,15 @@
 package carConnect.dao;
 
+import carConnect.entity.Vehicle;
+import carConnect.exception.VehicleNotFoundException;
+
+import java.sql.SQLException;
 import java.util.List;
 
-import carConnect.entity.Vehicle;
-
 public interface IVehicleService {
-	Vehicle getVehicleByID(int vehicleID);
-    List<Vehicle> getAvailableVehicles();
-    void addVehicle(Vehicle vehicleData);
-    void updateVehicle(Vehicle vehicleData);
-    void removeVehicle(int vehicleID);
+	Vehicle getVehicleByID(int vehicleID) throws SQLException, VehicleNotFoundException;
+    List<Vehicle> getAvailableVehicles() throws SQLException;
+    void addVehicle(Vehicle vehicleData) throws SQLException;
+    void updateVehicle(Vehicle vehicleData) throws SQLException, VehicleNotFoundException;
+    void removeVehicle(int vehicleID) throws SQLException, VehicleNotFoundException;
 }
