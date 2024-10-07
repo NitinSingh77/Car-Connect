@@ -27,7 +27,7 @@ public class CustomerService implements ICustomerService{
 			
 			if(res.next())
 			{
-				 obj= new Customer(res.getString("FirstName"), res.getString("LastName"), res.getString("Email"), res.getString("PhoneNumber"), res.getString("Address"), res.getString("Username"), res.getString("Password"));
+				 obj= new Customer(customerId, res.getString("FirstName"), res.getString("LastName"), res.getString("Email"), res.getString("PhoneNumber"), res.getString("Address"), res.getString("Username"), res.getString("Password"), null);
 			}
 		}catch(Exception ex)
 		{
@@ -50,7 +50,7 @@ public class CustomerService implements ICustomerService{
 			
 			if(res.next())
 			{
-				 obj= new Customer(res.getString("FirstName"), res.getString("LastName"), res.getString("Email"), res.getString("PhoneNumber"), res.getString("Address"), res.getString("Username"), res.getString("Password"));
+				 obj= new Customer(res.getInt("customerID"), res.getString("FirstName"), res.getString("LastName"), res.getString("Email"), res.getString("PhoneNumber"), res.getString("Address"), res.getString("Username"), res.getString("Password"), null);
 			}
 		}catch(Exception ex)
 		{
@@ -97,14 +97,16 @@ public class CustomerService implements ICustomerService{
 		
 		PreparedStatement pstmt= null;
 		try {
-			pstmt= con.prepareStatement("update Customer set FirstName=?, LastName=?, Email=?, PhoneNumber=?, Address=?, Username=?, Password=?");
-			pstmt.setString(1, customerData.getFirstName()); 
-		    pstmt.setString(2, customerData.getLastName());
-		    pstmt.setString(3, customerData.getEmail());
-		    pstmt.setString(4, customerData.getPhoneNumber());
-		    pstmt.setString(5, customerData.getAddress());
-		    pstmt.setString(6, customerData.getUsername());
-		    pstmt.setString(7, customerData.getPassword());
+			pstmt= con.prepareStatement("update Customer set FirstName=?, LastName=?, Email=?, PhoneNumber=?, Address=?, Username=?, Password=? where customerID=?");
+			pstmt.setInt(1, customerData.getCustomerID());
+			pstmt.setString(2, customerData.getFirstName()); 
+		    pstmt.setString(3, customerData.getLastName());
+		    pstmt.setString(4, customerData.getEmail());
+		    pstmt.setString(5, customerData.getPhoneNumber());
+		    pstmt.setString(6, customerData.getAddress());
+		    pstmt.setString(7, customerData.getUsername());
+		    pstmt.setString(8, customerData.getPassword());
+		    pstmt.setTimestamp(8, new java.sql.Timestamp(customerData.getRegistrationDate().getTime()));
 		    
 		    int roweffected= pstmt.executeUpdate();
 		    if(roweffected>0)
