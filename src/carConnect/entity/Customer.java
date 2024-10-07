@@ -13,6 +13,7 @@ public class Customer {
     private String username;
     private String password;
     private Date registrationDate;
+}
     
  // Default constructor
     public Customer() {
