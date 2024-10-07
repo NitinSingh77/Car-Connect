@@ -14,6 +14,7 @@ public class MainModule {
 	static IVehicleService  vechicleservice= new VehicleService();
 	static IReservationService reservationservice= new ReservationService();
 	static IAdminService adminservice= new AdminService();
+	static ReportGenerator reportGenerator= new ReportGenerator();
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -147,8 +148,6 @@ public class MainModule {
 	            System.out.println(e.getMessage());
 	        } catch (Exception e) {
 	            System.out.println(e.getMessage());
-	        } catch (SQLException e) {
-	            System.out.println("Database error: " + e.getMessage()); // Handle SQLException
 	        }
 	    }
 
@@ -476,7 +475,7 @@ public class MainModule {
 	    	String newStatus = scan.nextLine();
 	    	
 	    	try {
-	    		reservationservice.updateReservationStatus(reservationId, newStatus);
+	    		reservationservice.updateReservation(reservationId, newStatus);
 	    		System.out.println("Reservation status updated successfully!");
 	    	}catch (SQLException e){
 	    		System.out.println("Error updating reservation status: " + e.getMessage());
