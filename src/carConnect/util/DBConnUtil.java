@@ -2,25 +2,25 @@ package carConnect.util;
 import java.sql.*;
 
 public class DBConnUtil {
-	public static Connection getConnection(String connString)
+	public static Connection getConnection(String connectionString)
 	{
-		Connection conn= null;
+		Connection connection= null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 //			System.out.println("Loaded..");
-			conn= DriverManager.getConnection(connString);
+			connection= DriverManager.getConnection(connectionString);
 //			System.out.println("Connected...");
 			
-		}catch(ClassNotFoundException e)
+		}catch(ClassNotFoundException err)
 		{
-			e.printStackTrace();
+			err.printStackTrace();
 			System.out.println("Driven Loading Failed");
 		}
-		catch(SQLException e)
+		catch(SQLException err)
 		{
-			e.printStackTrace();
+			err.printStackTrace();
 			System.out.println("Unable to connect to the Database!");
 		}
-		return conn;
+		return connection;
 	}
 }
