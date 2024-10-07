@@ -79,7 +79,7 @@ public class Vehicle {
     }
 
   //--------- Availability--------------------------------------
-    public boolean isAvailability() {
+    public boolean getAvailability() {
         return availability;
     }
     public void setAvailability(boolean availability) {
