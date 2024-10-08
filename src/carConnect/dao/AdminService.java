@@ -64,7 +64,7 @@ public class AdminService implements IAdminService {
 			if(res.next())
 			{
 				 obj= new Admin(
-						 res.getInt("Admin ID"), res.getString("FirstName"), 
+						 res.getInt("AdminID"), res.getString("FirstName"), 
 						 res.getString("LastName"), 
 						 res.getString("Email"), 
 						 res.getString("PhoneNumber"),  
