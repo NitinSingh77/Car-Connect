@@ -88,14 +88,14 @@ public class AdminService implements IAdminService {
 		
 		PreparedStatement pstmt= null;
 		try {
-			pstmt= con.prepareStatement("insert into Customer(FirstName, LastName, Email, PhoneNumber, Username, Password, Role) values(?,?,?,?,?,?,?)");
+			pstmt= con.prepareStatement("insert into Admin(FirstName, LastName, Email, PhoneNumber, Username, Password, Role) values(?,?,?,?,?,?,?)");
 			pstmt.setString(1, admin.getFirstName()); 
 		    pstmt.setString(2, admin.getLastName());
 		    pstmt.setString(3, admin.getEmail());
 		    pstmt.setString(4, admin.getPhoneNumber() );
 		    pstmt.setString(5, admin.getUsername());
 		    pstmt.setString(6, admin.getPassword());
-		    pstmt.setString(7, admin.getRole());
+		    pstmt.setString(7, admin.getRole());	   
 		    
 		    int roweffected= pstmt.executeUpdate();
 		    if(roweffected>0)
@@ -117,7 +117,7 @@ public class AdminService implements IAdminService {
 		
 		PreparedStatement pstmt= null;
 		try {
-			pstmt= con.prepareStatement("update Customer set FirstName=?, LastName=?, Email=?, PhoneNumber=?, Username=?, Password=?, Role=?");
+			pstmt= con.prepareStatement("update Admin set FirstName=?, LastName=?, Email=?, PhoneNumber=?, Username=?, Password=?, Role=? where adminId=?");
 			pstmt.setString(1, admin.getFirstName()); 
 		    pstmt.setString(2, admin.getLastName());
 		    pstmt.setString(3, admin.getEmail());
@@ -125,6 +125,7 @@ public class AdminService implements IAdminService {
 		    pstmt.setString(5, admin.getUsername());
 		    pstmt.setString(6, admin.getPassword());
 		    pstmt.setString(7, admin.getRole());
+		    
 		    
 		    int roweffected= pstmt.executeUpdate();
 		    if(roweffected>0)
@@ -136,7 +137,7 @@ public class AdminService implements IAdminService {
 	}catch(SQLException e)
 		{
 		e.printStackTrace();
-		System.out.println("Error while Updating in Customer table!");
+		System.out.println("Error while Updating in Admin table!");
 		}
 		
 	}
@@ -148,7 +149,7 @@ public class AdminService implements IAdminService {
 		
 		PreparedStatement pstmt= null;
 		try {
-			pstmt= con.prepareStatement("delete from Customer where adminId=?");
+			pstmt= con.prepareStatement("delete from admin where adminId=?");
 			pstmt.setInt(1, adminId); 		    
 		    int roweffected= pstmt.executeUpdate();
 		    if(roweffected>0)
