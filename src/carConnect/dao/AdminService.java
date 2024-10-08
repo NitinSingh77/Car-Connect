@@ -23,7 +23,7 @@ public class AdminService implements IAdminService {
 		Admin obj= null;
 		PreparedStatement pstmt= null;
 		try {
-			pstmt= con.prepareStatement("Select * from Customer where customerId=?");
+			pstmt= con.prepareStatement("Select * from Admin where customerId=?");
 			pstmt.setInt(1, adminId);
 			ResultSet res= pstmt.executeQuery();
 			
@@ -56,7 +56,7 @@ public class AdminService implements IAdminService {
 		Admin obj= null;
 		PreparedStatement pstmt= null;
 		try {
-			pstmt= con.prepareStatement("Select * from Customer where Username=?");
+			pstmt= con.prepareStatement("Select * from Admin where Username=?");
 			pstmt.setString(1, username);
 			ResultSet res= pstmt.executeQuery();
 			
@@ -95,7 +95,7 @@ public class AdminService implements IAdminService {
 		    pstmt.setString(4, admin.getPhoneNumber() );
 		    pstmt.setString(5, admin.getUsername());
 		    pstmt.setString(6, admin.getPassword());
-		    pstmt.setString(7, admin.getRole());	   
+		    pstmt.setString(7, admin.getRole());
 		    
 		    int roweffected= pstmt.executeUpdate();
 		    if(roweffected>0)
@@ -117,7 +117,7 @@ public class AdminService implements IAdminService {
 		
 		PreparedStatement pstmt= null;
 		try {
-			pstmt= con.prepareStatement("update Admin set FirstName=?, LastName=?, Email=?, PhoneNumber=?, Username=?, Password=?, Role=? where adminId=?");
+			pstmt= con.prepareStatement("update Admin set FirstName=?, LastName=?, Email=?, PhoneNumber=?, Username=?, Password=?, Role=? where AdminId=?");
 			pstmt.setString(1, admin.getFirstName()); 
 		    pstmt.setString(2, admin.getLastName());
 		    pstmt.setString(3, admin.getEmail());
@@ -125,7 +125,6 @@ public class AdminService implements IAdminService {
 		    pstmt.setString(5, admin.getUsername());
 		    pstmt.setString(6, admin.getPassword());
 		    pstmt.setString(7, admin.getRole());
-		    
 		    
 		    int roweffected= pstmt.executeUpdate();
 		    if(roweffected>0)
