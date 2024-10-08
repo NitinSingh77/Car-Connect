@@ -37,7 +37,7 @@ public class AdminService implements IAdminService {
 						 res.getString("Username"), 
 						 res.getString("Password"),
 						 res.getString("Role"), 
-						 res.getDate("Join Date"));
+						 res.getDate("JoinDate"));
 			}
 		}catch(Exception err)
 		{
@@ -71,7 +71,7 @@ public class AdminService implements IAdminService {
 						 res.getString("Username"), 
 						 res.getString("Password"),
 						 res.getString("Role"), 
-						 res.getDate("Join Date"));
+						 res.getDate("JoinDate"));
 			}
 		}catch(Exception ex)
 		{
