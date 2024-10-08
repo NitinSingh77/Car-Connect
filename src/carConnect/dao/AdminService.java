@@ -149,7 +149,7 @@ public class AdminService implements IAdminService {
 		
 		PreparedStatement pstmt= null;
 		try {
-			pstmt= con.prepareStatement("delete from admin where adminId=?");
+			pstmt= con.prepareStatement("delete from Admin where adminId=?");
 			pstmt.setInt(1, adminId); 		    
 		    int roweffected= pstmt.executeUpdate();
 		    if(roweffected>0)
